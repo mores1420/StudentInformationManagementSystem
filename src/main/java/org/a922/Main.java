@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import static org.a922.StudentManagementSystem.bbb;
-import static org.a922.classManagement.ccc;
-import static org.a922.grageManagement.ddd;
-import static org.a922.personalManagement.eee;
+import static org.a922.Management.StudentManagementSystem.bbb;
+import static org.a922.Management.classManagement.ccc;
+import static org.a922.Management.grageManagement.ddd;
+import static org.a922.Management.personalManagement.eee;
 
 
 public class Main {

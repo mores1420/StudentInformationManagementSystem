@@ -1,18 +1,17 @@
-package org.a922;
+package org.a922.Check;
 
 import javax.swing.*;
 
-public class studentInfoCheck {
+public class gradeCheck {
 
-        // 表格数
-
-    public studentInfoCheck(){
+    // 表格数
+    public static void gradeCheck(){
         Object[][] data = {
 
         };
 
         // 表头
-        String[] columnNames = { "学号", "姓名", "年龄","性别","院系" };
+        String[] columnNames = { "学号", "课程号", "成绩" };
 
         // 创建JTable对象
         JTable table = new JTable(data, columnNames);
@@ -30,8 +29,11 @@ public class studentInfoCheck {
         frame.setVisible(true);
     }
     public static void main(String[] args) {
-        new studentInfoCheck();
-
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                gradeCheck();
+            }
+        });
     }
 }
 

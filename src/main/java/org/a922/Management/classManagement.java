@@ -1,4 +1,4 @@
-package org.a922;
+package org.a922.Management;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -6,19 +6,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class grageManagement {
+public class classManagement {
     private static DefaultTableModel tableModel;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                ddd();
+                ccc();
             }
         });
     }
 
-
-    public static void ddd() {
+    public static void ccc() {
         // 创建主窗口
         JFrame frame = new JFrame("学生管理系统");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,9 +28,9 @@ public class grageManagement {
 
         // 创建表格模型
         tableModel = new DefaultTableModel();
-        tableModel.addColumn("学号");
+        tableModel.addColumn("课程号");
         tableModel.addColumn("课程名");
-        tableModel.addColumn("成绩");
+        tableModel.addColumn("先行课程");
 
         // 创建表格
         JTable table = new JTable(tableModel);
@@ -46,11 +45,25 @@ public class grageManagement {
         JPanel buttonPanel = new JPanel();
 
         // 创建增加按钮
+        JButton addButton = new JButton("增加");
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addStudent();
+            }
+        });
+        buttonPanel.add(addButton);
 
         // 创建删除按钮
+        JButton deleteButton = new JButton("删除");
+        deleteButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                deleteStudent();
+            }
+        });
+        buttonPanel.add(deleteButton);
 
         // 创建修改按钮
-        JButton editButton = new JButton("修改成绩");
+        JButton editButton = new JButton("修改");
         editButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 editStudent();
@@ -88,7 +101,7 @@ public class grageManagement {
     }
 
     private static void addStudent() {
-        // 创建对话框
+
         JDialog dialog = new JDialog();
         dialog.setTitle("增加学生");
         dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -142,8 +155,7 @@ public class grageManagement {
         int selectedRow = tableModel.getRowCount() - 1;
 
         if (selectedRow >= 0) {
-            // 删除选中行
-            tableModel.removeRow(selectedRow);
+            // 删除选eRow(selectedRow);
         } else {
             JOptionPane.showMessageDialog(null, "没有选中的学生！", "错误", JOptionPane.ERROR_MESSAGE);
         }
@@ -236,8 +248,6 @@ public class grageManagement {
         JOptionPane.showMessageDialog(null, new JScrollPane(new JTable(tableModel)), "学生列表", JOptionPane.PLAIN_MESSAGE);
     }
 }
-
-
 
 
 
