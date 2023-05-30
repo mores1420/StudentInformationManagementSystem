@@ -17,7 +17,6 @@ public class personalManagement {
         });
     }
 
-
     public static void eee() {
         // 创建主窗口
         JFrame frame = new JFrame("学生管理系统");
@@ -31,7 +30,6 @@ public class personalManagement {
         tableModel = new DefaultTableModel();
         tableModel.addColumn("用户名");
         tableModel.addColumn("密码");
-
 
         // 创建表格
         JTable table = new JTable(tableModel);
@@ -49,7 +47,6 @@ public class personalManagement {
 
 
         // 创建删除按钮
-
         JButton editButton = new JButton("修改");
         editButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -139,6 +136,7 @@ public class personalManagement {
         dialog.setVisible(true);
     }
 
+    //删除学生信息
     private static void deleteStudent() {
         int selectedRow = tableModel.getRowCount() - 1;
 
@@ -150,6 +148,7 @@ public class personalManagement {
         }
     }
 
+    //编辑学生信息
     private static void editStudent() {
         int selectedRow = tableModel.getRowCount() - 1;
 

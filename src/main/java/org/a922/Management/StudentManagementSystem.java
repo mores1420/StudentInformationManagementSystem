@@ -18,6 +18,7 @@ public class StudentManagementSystem {
     }
 
 
+    //学生管理系统GUI
     public static void bbb() {
         // 创建主窗口
         JFrame frame = new JFrame("学生管理系统");
@@ -74,6 +75,7 @@ public class StudentManagementSystem {
 
         // 创建查看按钮
         JButton viewButton = new JButton("查看");
+        //查看按钮监听器
         viewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 viewStudent();
@@ -83,6 +85,7 @@ public class StudentManagementSystem {
 
         // 创建显示按钮
         JButton showButton = new JButton("显示");
+        //显示按钮监听器
         showButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 showStudents();

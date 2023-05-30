@@ -18,6 +18,7 @@ public class grageManagement {
     }
 
 
+    //学生管理系统GUI
     public static void ddd() {
         // 创建主窗口
         JFrame frame = new JFrame("学生管理系统");
