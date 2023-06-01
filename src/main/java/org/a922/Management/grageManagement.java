@@ -1,5 +1,7 @@
 package org.a922.Management;
 
+import org.a922.SQLManagement;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -77,6 +79,15 @@ public class grageManagement {
         });
         buttonPanel.add(showButton);
 
+
+        JButton addButton = new JButton("添加成绩");
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addStudent();
+            }
+        });
+        buttonPanel.add(addButton);
+
         // 将表格面板和按钮面板添加到主窗口
         frame.getContentPane().add(tablePanel, BorderLayout.CENTER);
         frame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
@@ -91,18 +102,18 @@ public class grageManagement {
     private static void addStudent() {
         // 创建对话框
         JDialog dialog = new JDialog();
-        dialog.setTitle("增加学生");
+        dialog.setTitle("添加成绩");
         dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         dialog.setSize(300, 200);
 
         // 创建文本框和标签
-        JLabel nameLabel = new JLabel("姓名:");
+        JLabel nameLabel = new JLabel("学号:");
         JTextField nameField = new JTextField(20);
 
-        JLabel ageLabel = new JLabel("年龄:");
+        JLabel ageLabel = new JLabel("课程:");
         JTextField ageField = new JTextField(20);
 
-        JLabel genderLabel = new JLabel("性别:");
+        JLabel genderLabel = new JLabel("成绩:");
         JTextField genderField = new JTextField(20);
 
         // 创建确定按钮
@@ -115,6 +126,7 @@ public class grageManagement {
 
                 // 将学生信息添加到表格模型
                 tableModel.addRow(new Object[]{name, age, gender});
+                SQLManagement.sqlManagement.addStudentData(name,age,gender);
 
                 // 关闭对话框
                 dialog.dispose();
@@ -166,15 +178,15 @@ public class grageManagement {
             String gender = (String) tableModel.getValueAt(selectedRow, 2);
 
             // 创建文本框和标签，并设置初始值
-            JLabel nameLabel = new JLabel("姓名:");
+            JLabel nameLabel = new JLabel("学号:");
             JTextField nameField = new JTextField(20);
             nameField.setText(name);
 
-            JLabel ageLabel = new JLabel("年龄:");
+            JLabel ageLabel = new JLabel("课程名:");
             JTextField ageField = new JTextField(20);
             ageField.setText(age);
 
-            JLabel genderLabel = new JLabel("性别:");
+            JLabel genderLabel = new JLabel("成绩:");
             JTextField genderField = new JTextField(20);
             genderField.setText(gender);
 
@@ -190,6 +202,7 @@ public class grageManagement {
                     tableModel.setValueAt(newName, selectedRow, 0);
                     tableModel.setValueAt(newAge, selectedRow, 1);
                     tableModel.setValueAt(newGender, selectedRow, 2);
+                    SQLManagement.sqlManagement.editStudentData(newName,newAge,newGender);
 
                     // 关闭对话框
                     dialog.dispose();

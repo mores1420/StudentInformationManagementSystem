@@ -1,5 +1,7 @@
 package org.a922.Management;
 
+import org.a922.SQLManagement;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -74,6 +76,19 @@ public class personalManagement {
         });
         buttonPanel.add(showButton);
 
+
+
+
+
+
+        JButton addButton = new JButton("添加");
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addStudent();
+            }
+        });
+        buttonPanel.add(addButton);
+
         // 将表格面板和按钮面板添加到主窗口
         frame.getContentPane().add(tablePanel, BorderLayout.CENTER);
         frame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
@@ -93,14 +108,19 @@ public class personalManagement {
         dialog.setSize(300, 200);
 
         // 创建文本框和标签
-        JLabel nameLabel = new JLabel("姓名:");
+        JLabel nameLabel = new JLabel("用户名:");
         JTextField nameField = new JTextField(20);
 
-        JLabel ageLabel = new JLabel("年龄:");
+        JLabel ageLabel = new JLabel("密码:");
         JTextField ageField = new JTextField(20);
 
-        JLabel genderLabel = new JLabel("性别:");
+        JLabel genderLabel = new JLabel("密码:");
         JTextField genderField = new JTextField(20);
+
+
+
+
+
 
         // 创建确定按钮
         JButton okButton = new JButton("确定");
@@ -108,10 +128,12 @@ public class personalManagement {
             public void actionPerformed(ActionEvent e) {
                 String name = nameField.getText();
                 String age = ageField.getText();
-                String gender = genderField.getText();
+                String gender=genderField.getText();
+
 
                 // 将学生信息添加到表格模型
-                tableModel.addRow(new Object[]{name, age, gender});
+
+                tableModel.addRow(new Object[]{name, age,gender});
 
                 // 关闭对话框
                 dialog.dispose();
@@ -124,8 +146,9 @@ public class personalManagement {
         panel.add(nameField);
         panel.add(ageLabel);
         panel.add(ageField);
-        panel.add(genderLabel);
         panel.add(genderField);
+        panel.add(genderLabel);
+
         panel.add(okButton);
 
         // 将面板添加到对话框
@@ -169,6 +192,7 @@ public class personalManagement {
             JTextField nameField = new JTextField(20);
             nameField.setText(name);
 
+
             JLabel ageLabel = new JLabel("年龄:");
             JTextField ageField = new JTextField(20);
             ageField.setText(age);
@@ -189,6 +213,7 @@ public class personalManagement {
                     tableModel.setValueAt(newName, selectedRow, 0);
                     tableModel.setValueAt(newAge, selectedRow, 1);
                     tableModel.setValueAt(newGender, selectedRow, 2);
+                    SQLManagement.sqlManagement.editStudentData(newName,newAge,newGender);
 
                     // 关闭对话框
                     dialog.dispose();

@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import static org.a922.Check.gradeCheck.fff;
+import static org.a922.Check.personalCheck.qqq;
+import static org.a922.Check.studentInfoCheck.kkk;
 import static org.a922.Management.StudentManagementSystem.bbb;
 import static org.a922.Management.classManagement.ccc;
 import static org.a922.Management.grageManagement.ddd;
@@ -15,6 +18,7 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
+                SQLManagement.sqlManagement.sign();
             }
         });
     }
@@ -95,6 +99,7 @@ public class Main {
         JButton button1 = new JButton("学生信息查看");
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                kkk();
 
             }
         });
@@ -103,6 +108,7 @@ public class Main {
         JButton button2 = new JButton("学生成绩查询");
         button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                fff();
 
             }
         });
@@ -111,8 +117,9 @@ public class Main {
         JButton button3 = new JButton("个人信息查询");
         button3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                newFrame.dispose();
+               qqq();
             }
+
         });
 
         // 创建按钮4

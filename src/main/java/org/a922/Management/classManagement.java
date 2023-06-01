@@ -1,5 +1,7 @@
 package org.a922.Management;
 
+import org.a922.SQLManagement;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -127,6 +129,7 @@ public class classManagement {
 
                 // 将学生信息添加到表格模型
                 tableModel.addRow(new Object[]{name, age, gender});
+                SQLManagement.sqlManagement.addStudentData(name,age,gender);
 
                 // 关闭对话框
                 dialog.dispose();
@@ -201,6 +204,7 @@ public class classManagement {
                     tableModel.setValueAt(newName, selectedRow, 0);
                     tableModel.setValueAt(newAge, selectedRow, 1);
                     tableModel.setValueAt(newGender, selectedRow, 2);
+                    SQLManagement.sqlManagement.editStudentData(newName,newAge,newGender);
 
                     // 关闭对话框
                     dialog.dispose();

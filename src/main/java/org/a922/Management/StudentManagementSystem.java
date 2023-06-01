@@ -1,5 +1,7 @@
 package org.a922.Management;
 
+import org.a922.SQLManagement;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -131,6 +133,8 @@ public class StudentManagementSystem {
 
                 // 将学生信息添加到表格模型
                 tableModel.addRow(new Object[]{name, age, gender});
+                SQLManagement.sqlManagement.editStudentData(name,age,gender);
+
 
                 // 关闭对话框
                 dialog.dispose();
@@ -196,6 +200,7 @@ public class StudentManagementSystem {
 
             // 创建确定按钮
             JButton okButton = new JButton("确定");
+            //确定按钮监听器
             okButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     String newName = nameField.getText();
@@ -206,6 +211,7 @@ public class StudentManagementSystem {
                     tableModel.setValueAt(newName, selectedRow, 0);
                     tableModel.setValueAt(newAge, selectedRow, 1);
                     tableModel.setValueAt(newGender, selectedRow, 2);
+                    SQLManagement.sqlManagement.editStudentData(newName,newAge,newGender);
 
                     // 关闭对话框
                     dialog.dispose();

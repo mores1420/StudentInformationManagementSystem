@@ -5,9 +5,9 @@ import javax.swing.*;
 public class gradeCheck {
 
     // 表格数
-    public static void gradeCheck(){
-        Object[][] data = {
 
+    public static void fff(){
+        Object[][] data = {
         };
 
         // 表头
@@ -31,9 +31,11 @@ public class gradeCheck {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                gradeCheck();
+                      fff();
+
             }
         });
+
     }
 }
 
